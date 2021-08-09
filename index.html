@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        
+    }
+    body{
+        background: rgb(115, 215, 245);
+        
+    }
+    input{
+        position: relative;
+        left: 340px;
+        
+    }
+    .label1{
+        position: relative;
+        left: 340px;
+    }
+    .label1{
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 22px;
+    }
+    .depo1{
+        font-size: 18px;
+    }
+    .draw1{
+        font-size: 18px;
+    }
+    #depo1{
+        height: auto;
+        font-size: 25px;
+        width: 120px;
+    }
+</style>
+<script>  
+    var depo = 0;
+    var Money_minus = 0;
+    var current = 0;
+    var funcDepo =()=>{
+        depo = parseInt(prompt("Εισαγωγη Ποσού:"));
+        current = current + depo;
+        return document.getElementById("depo1").value = current;
+        
+       
+    }
+    var clearInput = ()=>{
+        current = 0;
+       return document.getElementById("depo1").value = 0;
+    }
+    var withDraw = () =>{ 
+        depo = parseInt(prompt("Ανάληψή:"))
+        current = current - depo;
+        if(current > 0)
+        {
+            
+            return document.getElementById('depo1').value = current;
+        }
+        if (current == 0)
+        {
+            current = 0;
+            alert("Υπολοιπο μηδεν");
+            return document.getElementById('depo1').value = current;
+        }
+        if (current < 0)
+        {
+            current = current + depo;
+            alert("βάλτε ποσό που υπάρχει στο υπολοιπό σας");
+            return document.getElementById('depo1').value = current;
+        }
+        if(current != depo)
+        {
+            alert("");
+        }
+       
+        
+    }
+    var ypoloipo = () =>{
+        
+        return document.getElementById('depo1').value = current;
+    }
+    
+</script>
+<body>
+    <h1>ΣΥΣΤΗΜΑ ΤΡΑΠΕΖΙΚΩΝ ΚΙΝΗΣΕΩΝ</h1>
+    <label for="text" class="label1">Διαθέσιμο ποσό</label>
+    <input type="text" id="depo1"><br><br>
+    <input type="button" value="Κατάθεση" class="depo1" onclick="funcDepo()">
+    <input type="button" value="Ανάληψη" class="draw1" onclick="withDraw()">
+    <input type="button" value="Ακύρωση" class ="draw1" onclick="clearInput()">
+    <input type = "button" value = "Υπόλοιπο" class= "draw1" onclick="ypoloipo()">
+</body>
+</html>
